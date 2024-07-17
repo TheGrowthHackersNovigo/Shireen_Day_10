@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>887,2192</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>883.3333333333334,774.6666666666666</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -57,6 +57,8 @@
       <x:String>System.Reflection</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -124,7 +126,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="512,2127" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="512,710" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="UnicornNames" />
     </Sequence.Variables>
@@ -134,87 +136,97 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="450,88" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <ui:ClearDataTable DataTable="[io_UnicornNamesData]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Finding_The_Unique_Cornname - Invoke Workflow File (Workflow\Finding_The_Unique_Cornname.xaml)" sap:VirtualizedContainerService.HintSize="450,204" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflow\01_Finding_The_Unique_Cornname.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <scg:Dictionary x:TypeArguments="x:String, Argument" />
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Find Unicorn Name" sap:VirtualizedContainerService.HintSize="450,1375" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_UnicornWbsite]" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="4056dcae-991f-4aec-b781-daf743e6fb2a" Version="V2" WindowResize="Maximize">
-      <uix:NApplicationCard.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1215" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'What is your name?*'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,250" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" Text="[in_TransactionItem.SpecificContent(&quot;Name&quot;).ToString]" Version="V3">
-              <uix:NTypeInto.Target>
-                <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="50a22937-af29-4a06-90fa-4c82de801422" CvElementArea="630, 403, 239, 31" CvType="InputBox" DesignTimeRectangle="631, 404, 236, 28" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='txtName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='txtName' tag='INPUT' type='text' class='col-med form-el' placeholder='Enter your name' aaname='' /&gt;" Guid="2c297864-a880-46de-a03e-d675f6937507" InformativeScreenshot="4c5daf557041e36975956e2ab801feb6.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="50a22937-af29-4a06-90fa-4c82de801422" CvTextArea="401, 405, 160, 15" CvTextArgument="What is your name?*" CvType="Text" DesignTimeRectangle="403, 404, 228, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='What is your name?*' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='What is your name?*' tag='DIV' type='' class='col-med form-el' check:innerText='What is your name?*' /&gt;" Guid="92c4e60a-d77a-4021-b57d-7d64375f4a9c" SearchSteps="Selector" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NTypeInto.Target>
-            </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'What month'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" Text="[in_TransactionItem.SpecificContent(&quot;Month&quot;).ToString]" Version="V3">
-              <uix:NTypeInto.Target>
-                <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="a00d78d5-de5b-4779-9216-fe76d8c7ab80" CvElementArea="629, 450, 231, 28" CvType="InputBox" DesignTimeRectangle="631, 452, 228, 25" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;webctrl class='col-med' tag='DIV' /&gt;&lt;nav up='1' /&gt;&lt;webctrl id='selMonth' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='selMonth' tag='SELECT' type='' class='col-med' aaname='' /&gt;" Guid="c2662243-d396-42f1-87e7-d524a08e1eeb" InformativeScreenshot="f3ed06146baf838c9cff6f95ee5e45a4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="a00d78d5-de5b-4779-9216-fe76d8c7ab80" CvTextArea="401, 453, 223, 18" CvTextArgument="What month is your birthday?" CvType="Text" DesignTimeRectangle="403, 452, 228, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl class='col-med' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='col-med' tag='DIV' type='' aaname='What month is your birthday?' check:innerText='What month is your birthday?' /&gt;" Guid="63b289b7-3f74-4593-a5c5-ccbf80308e9f" SearchSteps="FuzzySelector, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NTypeInto.Target>
-            </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Get Name'" sap:VirtualizedContainerService.HintSize="354,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" Version="V3">
-              <uix:NClick.Target>
-                <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="c07c6421-9301-43eb-9dc9-821b0d8ea37f" CvElementArea="397, 565, 133, 40" CvTextArea="423, 576, 79, 15" CvTextArgument="Get Name" CvType="Button" DesignTimeRectangle="398, 567, 130, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl id='getNameButton' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='getNameButton' tag='BUTTON' type='' class='button' aaname='Get Name' check:innerText='Get Name' /&gt;" Guid="358168f3-c00e-42b0-9e6e-12e6c35273c2" InformativeScreenshot="e56e6d72fb178f0408589093b12112a4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
-              </uix:NClick.Target>
-              <uix:NClick.VerifyOptions>
-                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                  <uix:VerifyExecutionOptions.Retry>
-                    <InArgument x:TypeArguments="x:Boolean" />
-                  </uix:VerifyExecutionOptions.Retry>
-                  <uix:VerifyExecutionOptions.Timeout>
-                    <InArgument x:TypeArguments="x:Double" />
-                  </uix:VerifyExecutionOptions.Timeout>
-                </uix:VerifyExecutionOptions>
-              </uix:NClick.VerifyOptions>
-            </uix:NClick>
-            <uix:NGetText DisplayName="Get Text 'Your Unicorn Name'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" TextString="[UnicornNames]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="ae035c5d-3837-49ba-8dc6-bb528c9b0515" CvTextArea="1104, 654, 297, 28" CvType="AnyWordGroup" DesignTimeRectangle="1106, 652, 295, 28" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl id='lblUnicornName' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='lblUnicornName' tag='SPAN' type='' class='' /&gt;" Guid="762bf40f-f16f-43fc-8d84-e63e100c774a" ImageBase64="" InformativeScreenshot="3067f7400a2e8f95a9c1d56a96713978.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CVScreenId="ae035c5d-3837-49ba-8dc6-bb528c9b0515" CvTextArea="1095, 587, 247, 25" CvTextArgument="Your Unicorn Name" CvType="Text" DesignTimeRectangle="1099, 585, 472, 32" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Your Unicorn Name' class='lbl-header' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Your Unicorn Name' class='lbl-header' tag='DIV' type='' check:innerText='Your Unicorn Name' /&gt;" Guid="af7d660d-907e-4345-8875-44ba12f49d04" SearchSteps="Selector" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem.SpecificContent(&quot;Name&quot;), in_TransactionItem.SpecificContent(&quot;Month&quot;), UnicornNames}]" DataTable="[io_UnicornNamesData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,211" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-          </Sequence>
-        </ActivityAction>
-      </uix:NApplicationCard.Body>
-      <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="-8, -8, 1616, 876" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIBSURBVDhPY8ADmIGYC8IkA6gp8KgHuUjZQLnEgYaGBv2ioiIVEDsvWjkqP0a5AMSOjIyUbGtrswSx8YI17f3rN23YOGdVZWvW9u78f/snZ//f1tTXu2HDhpbV3ZP3Q5XhBnvbJ0+d1dp1+uzBI3dXTSr6v6Yn7f/55RveTOnoOnq4e8YyqDLcYP78+Vnr1q37X1xc/L+iouJ/ZnLK/3Qg3rhx4/+1a9d2QpXhBOxbtmx5Z2Rk9N/Y0uy/s7Pzf2Nj4/8e/j7/Q0ND/2/evPm3tbW1FFQtJrC3t9feu3cvWJNNqt9/c3Pz/1ZWVv8Dm7P/u7i4/F+1atX/CRMmeEOVY4LAwECD79+//4+JiflvZ2f3H+QSPz+//wEBAWD8/v37/yt6Ji83VdPkhWpBBRoaGgo/fvz4/+/fv//Pnj37/+TJEzB++vTp/79///4HgXvLt/xvjk1zhWrBBBcvXjwNVokFPLx5+/+r5dv/szAzC0OVYwJgyGvcuXPnOVQPHABd8rGvpiHz8rQl5yamF+ZDlWMHdXV1x+bOnQuKuiNAvGvevHn/Gxsbb0OlGaSFRVWBFCuEhwX0JCc/XVxQ8L8zLm5+W3Jy87zs7P9T0tP/AqVYICoIgIlmZjUH3N0fdBkbx1Xp6joD2TemmZvPhUoTB3hZWfmgTAYuFhbs0QYGDAwA2qQRBB7D/0YAAAAASUVORK5CYII=" InformativeScreenshot="6682db34f31f3c9841c81e9821a86b99.jpg" Selector="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" Title="Find Unicorn Name" Url="http://www.rpasamples.com/unicornname" />
-      </uix:NApplicationCard.TargetApp>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="450,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="450,88.66666666666667" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:ClearDataTable DataTable="[io_UnicornNamesData]" DisplayName="Clear Data Table : Containing previous data" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="ClearDataTable_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </uix:NApplicationCard>
+    </ui:ClearDataTable>
+    <Sequence sap2010:Annotation.AnnotationText="It opens the browser and types the name and month which is stored in the queue and it gets the unicorn name and store all this data in the data row" DisplayName="Sequence : For finding unicorn names" sap:VirtualizedContainerService.HintSize="450,204" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Find Unicorn Name" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_UnicornWbsite]" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="4056dcae-991f-4aec-b781-daf743e6fb2a" Version="V2" WindowResize="Maximize">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do : Find unicorn name" sap:VirtualizedContainerService.HintSize="416,1237.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'What is your name?*'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" Text="[in_TransactionItem.SpecificContent(&quot;Name&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="50a22937-af29-4a06-90fa-4c82de801422" CvElementArea="630, 403, 239, 31" CvType="InputBox" DesignTimeRectangle="631, 404, 236, 28" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='txtName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='txtName' tag='INPUT' type='text' class='col-med form-el' placeholder='Enter your name' aaname='' /&gt;" Guid="2c297864-a880-46de-a03e-d675f6937507" InformativeScreenshot="4c5daf557041e36975956e2ab801feb6.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CVScreenId="50a22937-af29-4a06-90fa-4c82de801422" CvTextArea="401, 405, 160, 15" CvTextArgument="What is your name?*" CvType="Text" DesignTimeRectangle="403, 404, 228, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='What is your name?*' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='What is your name?*' tag='DIV' type='' class='col-med form-el' check:innerText='What is your name?*' /&gt;" Guid="92c4e60a-d77a-4021-b57d-7d64375f4a9c" SearchSteps="Selector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'What month'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" Text="[in_TransactionItem.SpecificContent(&quot;Month&quot;).ToString]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="a00d78d5-de5b-4779-9216-fe76d8c7ab80" CvElementArea="629, 450, 231, 28" CvType="InputBox" DesignTimeRectangle="631, 452, 228, 25" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;webctrl class='col-med' tag='DIV' /&gt;&lt;nav up='1' /&gt;&lt;webctrl id='selMonth' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='selMonth' tag='SELECT' type='' class='col-med' aaname='' /&gt;" Guid="c2662243-d396-42f1-87e7-d524a08e1eeb" InformativeScreenshot="f3ed06146baf838c9cff6f95ee5e45a4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CVScreenId="a00d78d5-de5b-4779-9216-fe76d8c7ab80" CvTextArea="401, 453, 223, 18" CvTextArgument="What month is your birthday?" CvType="Text" DesignTimeRectangle="403, 452, 228, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl class='col-med' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='col-med' tag='DIV' type='' aaname='What month is your birthday?' check:innerText='What month is your birthday?' /&gt;" Guid="63b289b7-3f74-4593-a5c5-ccbf80308e9f" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Get Name'" sap:VirtualizedContainerService.HintSize="354,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="c07c6421-9301-43eb-9dc9-821b0d8ea37f" CvElementArea="397, 565, 133, 40" CvTextArea="423, 576, 79, 15" CvTextArgument="Get Name" CvType="Button" DesignTimeRectangle="398, 567, 130, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl id='getNameButton' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='getNameButton' tag='BUTTON' type='' class='button' aaname='Get Name' check:innerText='Get Name' /&gt;" Guid="358168f3-c00e-42b0-9e6e-12e6c35273c2" InformativeScreenshot="e56e6d72fb178f0408589093b12112a4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+              </uix:NClick>
+              <uix:NGetText DisplayName="Get Text 'Your Unicorn Name'" sap:VirtualizedContainerService.HintSize="354,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="4056dcae-991f-4aec-b781-daf743e6fb2a" TextString="[UnicornNames]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="http://www.rpasamples.com/unicornname" CVScreenId="ae035c5d-3837-49ba-8dc6-bb528c9b0515" CvTextArea="1104, 654, 297, 28" CvType="AnyWordGroup" DesignTimeRectangle="1106, 652, 295, 28" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl id='lblUnicornName' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='lblUnicornName' tag='SPAN' type='' class='' /&gt;" Guid="762bf40f-f16f-43fc-8d84-e63e100c774a" ImageBase64="" InformativeScreenshot="3067f7400a2e8f95a9c1d56a96713978.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CVScreenId="ae035c5d-3837-49ba-8dc6-bb528c9b0515" CvTextArea="1095, 587, 247, 25" CvTextArgument="Your Unicorn Name" CvType="Text" DesignTimeRectangle="1099, 585, 472, 32" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Your Unicorn Name' class='lbl-header' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Your Unicorn Name' class='lbl-header' tag='DIV' type='' check:innerText='Your Unicorn Name' /&gt;" Guid="af7d660d-907e-4345-8875-44ba12f49d04" SearchSteps="Selector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+              </uix:NGetText>
+              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem.SpecificContent(&quot;Name&quot;), in_TransactionItem.SpecificContent(&quot;Month&quot;), UnicornNames}]" DataTable="[io_UnicornNamesData]" DisplayName="Add Data Row : Adding all the values to the data row" sap:VirtualizedContainerService.HintSize="354,216.66666666666666" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="-8, -8, 1616, 876" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIBSURBVDhPY8ADmIGYC8IkA6gp8KgHuUjZQLnEgYaGBv2ioiIVEDsvWjkqP0a5AMSOjIyUbGtrswSx8YI17f3rN23YOGdVZWvW9u78f/snZ//f1tTXu2HDhpbV3ZP3Q5XhBnvbJ0+d1dp1+uzBI3dXTSr6v6Yn7f/55RveTOnoOnq4e8YyqDLcYP78+Vnr1q37X1xc/L+iouJ/ZnLK/3Qg3rhx4/+1a9d2QpXhBOxbtmx5Z2Rk9N/Y0uy/s7Pzf2Nj4/8e/j7/Q0ND/2/evPm3tbW1FFQtJrC3t9feu3cvWJNNqt9/c3Pz/1ZWVv8Dm7P/u7i4/F+1atX/CRMmeEOVY4LAwECD79+//4+JiflvZ2f3H+QSPz+//wEBAWD8/v37/yt6Ji83VdPkhWpBBRoaGgo/fvz4/+/fv//Pnj37/+TJEzB++vTp/79///4HgXvLt/xvjk1zhWrBBBcvXjwNVokFPLx5+/+r5dv/szAzC0OVYwJgyGvcuXPnOVQPHABd8rGvpiHz8rQl5yamF+ZDlWMHdXV1x+bOnQuKuiNAvGvevHn/Gxsbb0OlGaSFRVWBFCuEhwX0JCc/XVxQ8L8zLm5+W3Jy87zs7P9T0tP/AqVYICoIgIlmZjUH3N0fdBkbx1Xp6joD2TemmZvPhUoTB3hZWfmgTAYuFhbs0QYGDAwA2qQRBB7D/0YAAAAASUVORK5CYII=" InformativeScreenshot="6682db34f31f3c9841c81e9821a86b99.jpg" Selector="&lt;html app='chrome.exe' title='Find Unicorn Name' /&gt;" Title="Find Unicorn Name" Url="http://www.rpasamples.com/unicornname" />
+        </uix:NApplicationCard.TargetApp>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uix:NApplicationCard>
+    </Sequence>
   </Sequence>
 </Activity>
